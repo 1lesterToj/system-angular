@@ -1,0 +1,61 @@
+<sb-layout-dashboard><sb-dashboard-head title="Formulario" [hideBreadcrumbs]="false"></sb-dashboard-head><!-- <sb-card>
+        <div class="card-body">Chart.js is a third party plugin that is used to generate the charts in this template.
+            The charts below have been customized - for further customization options, please visit the official <a
+                target="_blank" href="https://www.chartjs.org/docs/latest/">Chart.js documentation</a>.</div>
+    </sb-card><sb-card>
+        <div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-area"]'></fa-icon>Area Chart Example</div>
+        <div class="card-body"><sb-charts-area></sb-charts-area></div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+    </sb-card>
+    <div class="row">
+        <div class="col-lg-6">
+            <sb-card>
+                <div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-bar"]'></fa-icon>Bar Chart Example
+                </div>
+                <div class="card-body"><sb-charts-bar></sb-charts-bar></div>
+                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            </sb-card>
+        </div>
+        <div class="col-lg-6">
+            <sb-card>
+                <div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-pie"]'></fa-icon>Pie Chart Example
+                </div>
+                <div class="card-body"><sb-charts-pie></sb-charts-pie></div>
+                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            </sb-card>
+        </div>
+    </div> -->
+<div class="col-sm-6 align-self-center">
+    <form>
+        <div class="form-group">
+            <label for="nitproductor">NIT del productor</label>
+            <input type="text" class="form-control" id="nitproductor" placeholder="Ingrese el NIT del productor" required [(ngModel)]="nitProductor"
+            [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+            <label for="razonsocial">Razón social</label>
+            <input type="text" class="form-control" id="razonsocial"
+                placeholder="Ingrese la razón social del productor" required [(ngModel)]="razonSocial"
+                [ngModelOptions]="{standalone: true}" >
+        </div>
+        <div class="form-group">
+            <label for="pesajetotal">Peso total</label>
+            <input type="number" class="form-control" id="pesajetotal" placeholder="Ingrese el peso total" required [(ngModel)]="pesajeTotalKg"
+            [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+            <label for="tipocafe">Tipo de café</label>
+            <select class="form-control" id="tipocafe" required [(ngModel)]="tipoCafe"
+            [ngModelOptions]="{standalone: true}">
+                <option value="">Seleccione el tipo de café</option>
+                <option value="cafe1">Café 1</option>
+                <option value="cafe2">Café 2</option>
+                <option value="cafe3">Café 3</option>
+            </select>
+        </div>
+        <button (click)="saveAccount()" type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
+
+
+</sb-layout-dashboard>

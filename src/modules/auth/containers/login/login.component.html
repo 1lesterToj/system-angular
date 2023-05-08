@@ -1,0 +1,34 @@
+<div class="bg-danger">
+    <div class="container">
+        <div class="abs-center">
+            <div class="py-5 row mi-div">
+                <div class="col-sm-6">
+                    <img src="./../../../../assets/img/fondo_login.jpeg" class="img-fluid zoom-image" alt="imagen_login"
+                        width="auto">
+                </div>
+                <div class="col mt-2 align-self-center">
+                    <div class="col">
+                        <form class="form-signin">
+                            <h1 class="h3 mb-3 font-weight-normal text-center">Iniciar sesión</h1>
+                            <label for="inputUsername" class="sr-only mt-2">Nombre de usuario</label>
+                            <input type="text" id="inputUsername" class="form-control mt-2"
+                                placeholder="Nombre de usuario" required [(ngModel)]="username"
+                                [ngModelOptions]="{standalone: true}">
+                            <label for="inputPassword" class="sr-only mt-2">Contraseña</label>
+                            <input type="password" id="inputPassword" class="form-control mt-2" placeholder="Contraseña"
+                                required [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+                            <!-- <div class="checkbox mb-3">
+                                    <label>
+                                        <input type="checkbox" value="remember-me"> Recordarme
+                                    </label>
+                                </div> -->
+                            <button class="btn btn-lg btn-dark btn-block mt-2" type="submit"
+                                (click)="login()">Iniciar
+                                sesión</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
