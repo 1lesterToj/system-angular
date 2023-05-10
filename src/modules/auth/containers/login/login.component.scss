@@ -1,36 +1,115 @@
-.abs-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-  }
-  
-  .zoom-image {
-    transition: transform 0.5s;
-  }
-  
-  .zoom-image:hover {
-    transform: scale(1.1);
-  }
-  
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 500px;
-    padding: 20px;
-  }
-  
-  .mat-form-field {
-    width: 100%;
-    margin: 10px 0;
-  }
-  
-  .mi-div {
-    background-color: rgba(255, 255, 255, 0.5);
-   
-    border-radius: 15px;
-  }
+
+body{
+  margin: -3%;
+  width: 103%;
+  height: 790px;
+  padding: -5%;
+  background: url(./../../../../assets/img/portada.jpg);
+  background-size: cover;
+  background-position: center;
+  font-family: sans-serif;
+}
+.loginbox {
+  width: 320px;
+  height: 420px;
+  background: transparent;
+  border: 4px solid rgba(255,255,255,0.8);
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10%;
+  left: calc(50% - 50px);
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 22px;
+}
+
+.loginbox p {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.loginbox input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.loginbox button {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #08b0ce;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.loginbox input[type = "text"], input[type = "password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.loginbox input[type = "submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #08b0ce;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.loginbox input[type = "submit"]:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #000;
+}
+
+.loginbox a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: #fff;
+}
+
+.loginbox a:hover {
+  color: #fff;
+}
+
+.inputbox ion-icon{
+  position: absolute;
+  right: 25px;
+  color: #fff;
+  font-size: 1.8em;
+  top: 120px;
+}
+
+
+.inputboxD ion-icon{
+  position: absolute;
+  right: 25px;
+  color: #fff;
+  font-size: 1.8em;
+  top: 200px;
+}
