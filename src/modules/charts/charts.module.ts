@@ -19,6 +19,7 @@ import * as chartsGuards from './guards';
 
 /* Services */
 import * as chartsServices from './services';
+import { ParcialidadComponent } from './containers/parcialidad/parcialidad.component';
 
 @NgModule({
     imports: [
@@ -30,7 +31,7 @@ import * as chartsServices from './services';
         NavigationModule,
     ],
     providers: [...chartsServices.services, ...chartsGuards.guards],
-    declarations: [...chartsContainers.containers, ...chartsComponents.components],
+    declarations: [...chartsContainers.containers, ...chartsComponents.components, ParcialidadComponent],
     exports: [...chartsContainers.containers, ...chartsComponents.components],
 })
 export class ChartsModule {}

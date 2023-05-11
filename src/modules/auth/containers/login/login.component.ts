@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('usuario', res.username);
         await this.notificaciones.notificacionSuccess();
         if (login) {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/charts']);
         }
       })
       .catch(err => {
