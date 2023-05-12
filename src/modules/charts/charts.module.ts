@@ -38,8 +38,6 @@ import { MatSortModule } from '@angular/material/sort';
         MatPaginatorModule,
         MatSortModule,
         FormsModule,
-
-        
     ],
     providers: [...chartsServices.services, ...chartsGuards.guards],
     declarations: [...chartsContainers.containers, ...chartsComponents.components, ParcialidadComponent, GenerictableCComponent],
