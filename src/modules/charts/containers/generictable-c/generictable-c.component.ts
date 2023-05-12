@@ -12,22 +12,22 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class GenerictableCComponent implements OnInit {
 
-  tableDataSrc: any;
+  tableDataSrc!: any;
   selection = new SelectionModel(true, []);
   listaSeleccion: any[] = [];
-  filterData: Event | undefined;
+  filterData!: Event;
 
 
-  @Input('tableColumns') tableCols: string[] | undefined;
-  @Input() headerText: string[] | undefined;
+  @Input('tableColumns') tableCols!:string[];
+  @Input() headerText !: string[] ; 
   @Input() tableData: {}[] = [];
-  @Input() inputFilter: any | undefined;
+  @Input() inputFilter !: any ;
   @Input() limpiarSeleccion: any;
-  @Input() parentComp: string | undefined;
+  @Input() parentComp!: string;
 
   @Output() usuariosSeleccionado = new EventEmitter<any>();
-  @ViewChild(MatSort, { static: true }) sort: MatSort | undefined;
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator | undefined;
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   constructor() { }
 
   ngOnInit(): void {

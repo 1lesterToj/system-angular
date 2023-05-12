@@ -10,12 +10,12 @@ import { SideNavComponent } from '@modules/navigation/containers';
     styleUrls: ['charts.component.scss'],
 })
 export class ChartsComponent implements OnInit {
-    nitProductor: string | undefined;
-    usuarioOpera: string | undefined
-    pesajeTotalKg: any | undefined;
-    tipoCafe: any;
+    nitProductor!: string;
+    usuarioOpera!: string 
+    pesajeTotalKg!: any ;
+    tipoCafe!: any;
     viewTable: boolean = false;
-    cantidadParcialidades: any | undefined;
+    cantidadParcialidades!: any;
     usuarioLog: any = '';
     tableCols: string[] = ['contador', 'numerocuenta', 'nit_productor', 'cantidadP', 'pesajeT', 'tipoC'];//variables tabla operador
     hText: string[] = ['ID.', 'Número de cuenta', 'NIT de productor', 'Cantidad de parcialidades', 'Pesaje total', 'Tipo de café'];//encabezado tabla operador
