@@ -1,5 +1,5 @@
 /* tslint:disable: ordered-imports*/
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -20,6 +20,10 @@ import * as chartsGuards from './guards';
 /* Services */
 import * as chartsServices from './services';
 import { ParcialidadComponent } from './containers/parcialidad/parcialidad.component';
+import { GenerictableCComponent } from './containers/generictable-c/generictable-c.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
     imports: [
@@ -29,9 +33,18 @@ import { ParcialidadComponent } from './containers/parcialidad/parcialidad.compo
         FormsModule,
         AppCommonModule,
         NavigationModule,
+        ReactiveFormsModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        FormsModule,
+
+        
     ],
     providers: [...chartsServices.services, ...chartsGuards.guards],
-    declarations: [...chartsContainers.containers, ...chartsComponents.components, ParcialidadComponent],
+    declarations: [...chartsContainers.containers, ...chartsComponents.components, ParcialidadComponent, GenerictableCComponent],
     exports: [...chartsContainers.containers, ...chartsComponents.components],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
 })
 export class ChartsModule {}

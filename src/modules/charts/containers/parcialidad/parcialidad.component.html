@@ -35,12 +35,12 @@
     <div class="form-group">
         <label for="cantidadParcialidades">Parcialidad</label>
         <input type="number" class="form-control" id="cantidadParcialidades" placeholder="Ingrese Parcialidad" required [(ngModel)]="cantidadParcialidades"
-        >
+        [ngModelOptions]="{standalone: true}">
     </div>
     <div class="form-group">
         <label for="pesajetotal">Peso total</label>
         <input type="number" class="form-control" id="pesajetotal" placeholder="Ingrese el peso total" required [(ngModel)]="pesajeTotalKg"
-        >
+        [ngModelOptions]="{standalone: true}">
     </div>
     <div class="form-group">
         <label for="tipocafe">Tipo de café</label>

@@ -22,6 +22,7 @@ import * as dashboardGuards from './guards';
 /* Services */
 import * as dashboardServices from './services';
 
+
 @NgModule({
     imports: [
         CommonModule,
@@ -32,6 +33,7 @@ import * as dashboardServices from './services';
         NavigationModule,
         ChartsModule,
         TablesModule,
+        
     ],
     providers: [...dashboardServices.services, ...dashboardGuards.guards],
     declarations: [...dashboardContainers.containers, ...dashboardComponents.components],

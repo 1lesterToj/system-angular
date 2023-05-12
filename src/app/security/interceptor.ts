@@ -35,6 +35,8 @@ export class YourInterceptor implements HttpInterceptor {
                 } else if (error.status === 403) {
                     this.notificaciones.notificacionGenerica("EL USUARIO NO POSEE PERMISOS NECESARIOS", "warning");
 
+                } else if (error.status === 404) {
+                    this.notificaciones.notificacionGenerica(error.error, "warning");
                 } else {
                     this.notificaciones.notificacionGenerica("ERROR DE SERVIDOR", "error");
                 }
