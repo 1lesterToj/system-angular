@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { GeneralServiceService } from '@app/core/services/general-service.service';
 import { GenericNotification } from '@app/shared/notificaciones';
 
@@ -8,38 +9,50 @@ import { GenericNotification } from '@app/shared/notificaciones';
   styleUrls: ['./parcialidad.component.scss']
 })
 export class ParcialidadComponent implements OnInit {
-  nitProductor: string | undefined;
-  licenciaTransportista: string | undefined
-  pesoParcialidad: any;
-  tipoCafe: any;
-  noCuenta: string | undefined;
-  placaTransporte : string | undefined;
+  licenciaTransportista!: string;
+  placaTransporte!: string;
+  pesoParcialidad!: number;
+  jsonTemporal!: any;
 
   constructor(
-    private servicio: GeneralServiceService, 
-    private notificaciones: GenericNotification
-    ) { }
+    private servicio: GeneralServiceService,
+    private notificaciones: GenericNotification,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<ParcialidadComponent>,
+  ) { }
 
   ngOnInit(): void {
+    console.log("DATOS DEL COMPONENTE ANTERIOR: ", this.dialogRef.componentInstance.data)
+    this.jsonTemporal = this.dialogRef.componentInstance.data;
   }
-  saveAccount() {
-    const saveData = {
-        nitProductor: this.nitProductor,
-        licenciaTransportista: this.licenciaTransportista,
-        pesoParcialidad: this.pesoParcialidad,
-        tipoCafe: this.tipoCafe,
-        noCuenta: this.noCuenta,
-        placaTransporte: this.placaTransporte,
-        usuarioOpera: 'DISANTIZ'
-    }
 
-    this.servicio.saveData(saveData).toPromise().then(res => {
-            this.notificaciones.notificacionGenerica('Cuenta Creada', 'success');
-        })
-        .catch(err => {
-            console.log(err);
-            this.notificaciones.notificacionGenerica('Error', 'info');
-        })
-}
+  closeDialog() {
+    this.dialogRef.close();
+  }
+
+  async saveParcialidad() {
+    const jsonEnviar = {
+      noCuenta: this.jsonTemporal.numeroCuenta,
+      nitProductor: this.jsonTemporal.nitProductor,
+      licenciaTransportista: this.licenciaTransportista,
+      placaTransporte: this.placaTransporte,
+      pesoParcialidad: this.pesoParcialidad,
+      usuarioOpera: localStorage.getItem('usuario'),
+    };
+    await this.servicio.saveParcialidad(jsonEnviar).toPromise()
+      .then(async res => {
+        await this.notificaciones.notificacionGenerica('PARCIALIDAD CREADA EXITOSAMENTE', 'success');
+        this.clearFormulario();
+      })
+      .catch(err => {
+
+      });
+  }
+
+  clearFormulario() {
+    this.licenciaTransportista = '';
+    this.placaTransporte = '';
+    this.pesoParcialidad = 0;
+  }
 
 }

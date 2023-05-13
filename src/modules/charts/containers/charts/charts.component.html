@@ -8,7 +8,7 @@
                         <label for="nitproductor">NIT del productor</label>
                         <input type="text" class="form-control" id="nitproductor"
                             placeholder="Ingrese el NIT del productor" required [(ngModel)]="nitProductor"
-                            [ngModelOptions]="{standalone: true}">
+                            [ngModelOptions]="{standalone: true}" [disabled]="disabled">
                     </div>
                 </div>
                 <div class="col">

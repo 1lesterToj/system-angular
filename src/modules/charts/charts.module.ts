@@ -24,6 +24,7 @@ import { GenerictableCComponent } from './containers/generictable-c/generictable
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
     imports: [
@@ -38,6 +39,10 @@ import { MatSortModule } from '@angular/material/sort';
         MatPaginatorModule,
         MatSortModule,
         FormsModule,
+        MatDialogModule,
+    ],
+    entryComponents: [
+        ParcialidadComponent
     ],
     providers: [...chartsServices.services, ...chartsGuards.guards],
     declarations: [...chartsContainers.containers, ...chartsComponents.components, ParcialidadComponent, GenerictableCComponent],
@@ -45,4 +50,4 @@ import { MatSortModule } from '@angular/material/sort';
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
 })
-export class ChartsModule {}
+export class ChartsModule { }

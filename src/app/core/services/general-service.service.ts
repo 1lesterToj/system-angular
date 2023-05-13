@@ -7,6 +7,8 @@ import { map } from 'rxjs/operators';
 const ULR_AUTH = environment.BASE_API + '/auth';
 const URL_CUENTA = environment.BASE_API + '/cuenta';
 const URL_USUARIOS = environment.BASE_API + '/usuarios';
+const ULR_PARCIALIDADES = environment.BASE_API + '/parcialidades';
+
 
 
 @Injectable({
@@ -36,12 +38,14 @@ export class GeneralServiceService {
 
   dataAccount(data: any) {
     return this.http.post<any>(URL_CUENTA + '/obtenerCuentasByNit', data);
-  }
+  };
 
   getNitUser(data: any) {
     return this.http.post<any>(URL_USUARIOS + '/obtenerUsuarioByUsername', data)
-  }
+  };
 
-
+  saveParcialidad(data: any) {
+    return this.http.post<any>(ULR_PARCIALIDADES + '/EnvioParcialidad', data)
+  };
 
 }

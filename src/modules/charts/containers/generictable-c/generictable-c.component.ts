@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { SelectionModel } from '@angular/cdk/collections';
 import { ActivatedRoute, Params } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { ParcialidadComponent } from '../parcialidad/parcialidad.component';
 @Component({
   selector: 'sb-generictable-c',
   templateUrl: './generictable-c.component.html',
@@ -18,17 +19,17 @@ export class GenerictableCComponent implements OnInit {
   filterData!: Event;
 
 
-  @Input('tableColumns') tableCols!:string[];
-  @Input() headerText !: string[] ; 
+  @Input('tableColumns') tableCols!: string[];
+  @Input() headerText !: string[];
   @Input() tableData: {}[] = [];
-  @Input() inputFilter !: any ;
+  @Input() inputFilter !: any;
   @Input() limpiarSeleccion: any;
   @Input() parentComp!: string;
 
   @Output() usuariosSeleccionado = new EventEmitter<any>();
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.tableDataSrc = new MatTableDataSource(this.tableData);
@@ -90,4 +91,19 @@ export class GenerictableCComponent implements OnInit {
       : this.tableDataSrc.data.forEach((row: never) => this.selection.select(row));
   }
 
+  saveParcialidad(numeroCuenta: string, nitProductor: string) {
+    const abrirDialogo = this.dialog.open(ParcialidadComponent, {
+      height: '350px',
+      width: '500px',
+      data: {
+        numeroCuenta: numeroCuenta,
+        nitProductor: nitProductor
+      },
+      disableClose: true
+    })
+
+    abrirDialogo.afterClosed().subscribe(result => {
+
+    });
+  };
 }

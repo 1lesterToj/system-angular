@@ -11,14 +11,15 @@ import { SideNavComponent } from '@modules/navigation/containers';
 })
 export class ChartsComponent implements OnInit {
     nitProductor!: string;
-    usuarioOpera!: string 
-    pesajeTotalKg!: any ;
+    usuarioOpera!: string
+    pesajeTotalKg!: any;
+    disabled: boolean = true;
     tipoCafe!: any;
     viewTable: boolean = false;
     cantidadParcialidades!: any;
     usuarioLog: any = '';
-    tableCols: string[] = ['contador', 'numerocuenta', 'nit_productor', 'cantidadP', 'pesajeT', 'tipoC'];//variables tabla operador
-    hText: string[] = ['ID.', 'Número de cuenta', 'NIT de productor', 'Cantidad de parcialidades', 'Pesaje total', 'Tipo de café'];//encabezado tabla operador
+    tableCols: string[] = ['contador', 'numerocuenta', 'nit_productor', 'cantidadP', 'pesajeT', 'tipoC', 'accionParcialidad'];//variables tabla operador
+    hText: string[] = ['ID.', 'Número de cuenta', 'NIT de productor', 'Cantidad de parcialidades', 'Pesaje total', 'Tipo de café','Parcialidad'];//encabezado tabla operador
     tableData: {}[] = [{}];
     constructor(
         private servicio: GeneralServiceService,
@@ -65,6 +66,7 @@ export class ChartsComponent implements OnInit {
         //SE OBTIENE NIT DEL USUARIO LOGUEADO
         await this.servicio.getNitUser(objetoTemp).toPromise()
             .then(async res => {
+                this.nitProductor = res.data.nit;
                 console.log("SE OBTIENE DATOS DE USUARIO LOGUEADO:>>", res)
                 //SE OBTIENE CUENTAS CREADAS AL NIT DEL USUARIO LOGUEADO
                 const jsonTemp: any = {
